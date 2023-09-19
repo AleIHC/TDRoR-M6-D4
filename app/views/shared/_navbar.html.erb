@@ -17,25 +17,25 @@
             <% end %>
           </ul>
         </li>
-        <li class="nav-item"><%= link_to "Nuevo Post", new_kp_post_path, class: "nav-link px-lg-3 py-3 py-lg-4" %></li>
+        <li class="nav-item"><%= link_to "New Post", new_kp_post_path, class: "nav-link px-lg-3 py-3 py-lg-4" %></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if kp_user_signed_in? %>
               <% if current_kp_user.name %>
-                Hola <%= current_kp_user.name %>
+                Hi <%= current_kp_user.name %>
               <% else %>
-                Hola <%= current_kp_user.email %>
+                Hi <%= current_kp_user.email %>
               <% end %>
             <% else %>
-              Inicia sesión o regístrate
+              Sign In or Sign Up
             <% end %>
           </a>
           <ul class="dropdown-menu ms-auto">
             <% if kp_user_signed_in? %>
-            <li><%= button_to "Cerrar Sesión", destroy_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item", method: :delete %></li>
+            <li><%= button_to "Sign Out", destroy_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item", method: :delete %></li>
             <% else %>
-            <li><%= link_to "Iniciar Sesión", new_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
-            <li><%= link_to "Registro", new_kp_user_registration_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
+            <li><%= link_to "Sign In", new_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
+            <li><%= link_to "Sign up", new_kp_user_registration_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
             <% end %>
           </ul>
         </li>

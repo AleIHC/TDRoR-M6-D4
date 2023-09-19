@@ -31,7 +31,7 @@ class KpCommentsController < ApplicationController
 
     respond_to do |format|
       if @kp_comment.save
-        format.html { redirect_to kp_comment_url(@kp_comment), notice: "Kp comment was successfully created." }
+        format.html { redirect_to kp_post_url(@kp_post), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @kp_comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class KpCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @kp_comment.update(kp_comment_params)
-        format.html { redirect_to kp_comment_url(@kp_comment), notice: "Kp comment was successfully updated." }
+        format.html { redirect_to kp_comment_url(@kp_comment), notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @kp_comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class KpCommentsController < ApplicationController
     @kp_comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to kp_comments_url, notice: "Kp comment was successfully destroyed." }
+      format.html { redirect_to kp_comments_url, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

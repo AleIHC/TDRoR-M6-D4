@@ -34,7 +34,7 @@ class KpPostsController < ApplicationController
 
     respond_to do |format|
       if @kp_post.save
-        format.html { redirect_to kp_post_url(@kp_post), notice: "Kp post was sukpessfully created." }
+        format.html { redirect_to kp_post_url(@kp_post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @kp_post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class KpPostsController < ApplicationController
   def update
     respond_to do |format|
       if @kp_post.update(kp_post_params)
-        format.html { redirect_to kp_post_url(@kp_post), notice: "Kp post was sukpessfully updated." }
+        format.html { redirect_to kp_post_url(@kp_post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @kp_post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class KpPostsController < ApplicationController
     @kp_post.destroy
 
     respond_to do |format|
-      format.html { redirect_to kp_posts_url, notice: "Kp post was sukpessfully destroyed." }
+      format.html { redirect_to kp_posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end
