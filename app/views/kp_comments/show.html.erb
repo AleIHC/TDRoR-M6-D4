@@ -1,0 +1,8 @@
+<%= render @kp_comment %>
+
+<div>
+  <%= link_to "Edit this kp comment", edit_kp_comment_path(@kp_comment) %> |
+  <%= link_to "Back to kp comments", kp_comments_path %>
+
+  <%= button_to "Destroy this kp comment", @kp_comment, method: :delete %>
+</div>

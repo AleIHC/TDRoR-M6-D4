@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fa-solid fa-paw nav-title-custom me-2"></i>
+        <p class="m-auto nav-title-custom">KariPic</p>
+    <% end %>
+   <p class="notice text-center pt-2"><%= notice %></p>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto py-4 py-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="<%= root_path %>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome
+          </a>
+          <ul class="dropdown-menu ms-auto">
+            <% if kp_user_signed_in? %>
+            <li><%= link_to "Portfolio", kp_posts_path, class: "nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="nav-item"><%= link_to "Nuevo Post", new_kp_post_path, class: "nav-link px-lg-3 py-3 py-lg-4" %></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if kp_user_signed_in? %>
+              <% if current_kp_user.name %>
+                Hola <%= current_kp_user.name %>
+              <% else %>
+                Hola <%= current_kp_user.email %>
+              <% end %>
+            <% else %>
+              Inicia sesión o regístrate
+            <% end %>
+          </a>
+          <ul class="dropdown-menu ms-auto">
+            <% if kp_user_signed_in? %>
+            <li><%= button_to "Cerrar Sesión", destroy_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item", method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Iniciar Sesión", new_kp_user_session_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
+            <li><%= link_to "Registro", new_kp_user_registration_path, class:"nav-link px-lg-3 py-3 py-lg-4 dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

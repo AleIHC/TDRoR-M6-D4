@@ -1,0 +1,24 @@
+<div class="centered-container">
+  <div class="mb-5">
+    <%= render @kp_post %>
+  </div>
+</div>
+
+<div id="kp_comments">
+  <div class="text-center mb-5">
+    <h2 class="section-title">Comments</h2>
+  </div>
+
+  <% @kp_comments.each do |kp_comment| %>
+    <%= render kp_comment %>
+  <% end %>
+
+  <!--Verificar si el usuario está logeado para que aparezca el botón-->
+  <% if kp_user_signed_in? %>
+    <% if current_kp_user.role %>
+      <div class="text-center mt-5 mb-5 posts-title">
+        <%= render 'kp_comments/form' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

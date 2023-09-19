@@ -1,0 +1,29 @@
+<div id="<%= dom_id kp_comment %>">
+  <div class="row d-flex justify-content-center comment">
+    <div class="col-md-8 col-lg-6 mb-5">
+      <div class="card shadow-0 border">
+        <div class="card-body p-0">
+          <div class="card m-0">
+            <div class="card-body">
+              <div class="d-flex flex-row align-items-center">
+                <div class="rounded-circle overflow-hidden">
+                  <% if kp_comment.kp_user.avatar.present? %>
+                    <%= image_tag kp_comment.kp_user.avatar, alt: "avatar", class: "img-fluid rounded", width: "100", height: "100" %>
+                  <% else %>
+                    <img src="https://images.pexels.com/photos/1051076/pexels-photo-1051076.jpeg?cs=srgb&dl=pexels-element-digital-1051076.jpg&fm=jpg" alt="avatar" width="100" height="100" />
+                  <% end %>
+                </div>
+                <div class="d-flex flex-column align-items-start ms-5">
+                  <p class="small mb-0"><%= kp_comment.kp_user.email %></p>
+                  <div class="comment-content mt-2">
+                    <p><%= kp_comment.content %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

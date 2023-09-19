@@ -1,0 +1,20 @@
+<h1 class="section-title text-center mt-5">Portfolio</h1>
+
+<section id="gallery" class="gallery">
+  <div class="container-fluid">
+    <div class="row gy-4">
+      <% @kp_posts.each do |kp_post| %>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="<%= kp_post_path(kp_post) %>">
+            <div id="<%= dom_id kp_post %>" class="gallery-item h-100">
+              <%= image_tag kp_post.kp_image, class: "img-fluid gallery-image" %>
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <i class="bi bi-arrows-angle-expand"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

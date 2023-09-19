@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="form-text-bubble"> 
+        <%= form_with(model: kp_post, local: true) do |form| %>
+          <% if kp_post.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(kp_post.errors.count, "error") %> prohibited this kp_post from being saved:</h2>
+              <ul>
+                <% kp_post.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= form.hidden_field :kp_user_id, value: @kp_post.kp_user %>
+
+          <div class="form-group mb-4">
+            <%= form.label :Upload_your_image %><br>
+            <label class="custom-file">
+              <%= form.file_field :kp_image, class: 'custom-file-input form-control-file mt-2', style: 'width: auto;' %>
+              <span class="custom-file-label"></span>
+            </label>
+          </div>
+
+
+          <div class="form-group mb-4">
+            <%= form.label :image_legend %>
+            <%= form.text_field :image_legend, class: 'form-control' %>
+          </div>
+
+          <div class="text-center">
+            <%= form.submit 'Upload', class: 'btn btn-dark' %>
+            <%= link_to "Back to kp posts", kp_posts_path, class: 'btn btn-dark'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

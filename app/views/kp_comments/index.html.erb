@@ -1,0 +1,12 @@
+<h1>Kp comments</h1>
+
+<div id="kp_comments">
+  <% @kp_comments.each do |kp_comment| %>
+    <%= render kp_comment %>
+    <p>
+      <%= link_to "Show this kp comment", kp_comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New kp comment", new_kp_comment_path %>

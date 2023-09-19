@@ -1,0 +1,21 @@
+<div id="<%= dom_id kp_post %>">
+  <div class="container mb-2 post-content">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="image-legend-container d-flex align-items-center">
+          <div class="image-container">
+            <%= image_tag kp_post.kp_image, class: "img-fluid rounded", id: "post-image" %>
+          </div>
+          <div class="text-bubble">
+            <p><%= kp_post.image_legend %></p>
+          </div>
+        </div>
+        <div class="gallery-links d-flex align-items-center justify-content-center">
+          <a href="<%= kp_post.kp_image %>" data-lightbox="gallery" data-title="<%= kp_post.image_legend %>">
+            <i class="bi bi-arrows-angle-expand"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
